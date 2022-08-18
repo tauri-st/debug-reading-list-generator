@@ -10,6 +10,7 @@ const addBook = function (title, author, pages) {
     author: author,
     pages: pages
   };
+  return book;
 };
 
 const myBooks = [];
@@ -32,7 +33,7 @@ button.addEventListener("click", function (e) {
   }
 
   // Create new book object
-  const book = addBook(titleValue, authorvalue, pagesValue);
+  const book = addBook(titleValue, authorValue, pagesValue);
   // add to 'myBooks' array
   myBooks.push(book);
 
@@ -45,7 +46,7 @@ button.addEventListener("click", function (e) {
 
 const addToTable = function () {
   const tr = document.createElement("tr");
-  for (let book in books) {
+  for (let book of myBooks) {
     console.log(book.title);
     const rowContents = `<td>${book.title}</td><td>${book.author}</td><td>${book.pages}</td>`;
     tr.innerHTML = rowContents;
